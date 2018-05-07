@@ -1,0 +1,19 @@
+function Mobile(type,color,inches)
+{
+this.type = type;
+this.color = color;
+this.inches = inches;
+};
+
+Mobile.prototype.mobileAsus = function(){
+console.log("this mobile is having " + this.inches);
+}
+
+
+function Asus(type,color,inches,ram)
+{
+Car.call(this,type,color,inches);
+this.ram = ram;
+}
+var x = new Mobile("Asus","NavyBlue","5gigabytes");
+x.mobileAsus();
