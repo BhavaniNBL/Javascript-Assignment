@@ -1,0 +1,25 @@
+class Mobile {
+    constructor(text){
+       this.text = text;
+    }
+    mobileFunction() {
+        console.log("This is super class. "+this.text);
+    }
+}
+ 
+class Asus extends Mobile {
+    constructor(text){
+       super(text);
+    }
+    mobileFunction() {
+        console.log('This is child class. '+this.text);
+    }
+    asusFunction() {
+       console.log('Method implemented successfully.');
+    } 
+}
+ 
+let b = new Asus('Hey! This is Asus');
+b.mobileFunction();   
+
+b.asusFunction();   
