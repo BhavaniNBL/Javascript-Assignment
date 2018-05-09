@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <title>Key Capturing</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<style>
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+<script>
+  $(document).ready(function() {
+            $("#exampleFormControlInput1").click(function() {
+               alert("clicked on name ");
+
+            });
+            $("#exampleInputEmail1").click(function() {
+                alert("clicked on email");
+            });
+            $("#exampleFormControlTextarea1").click(function() {
+                alert("clicked on text box ");
+            });
+            
+            $("button").click(function() {
+                alert("clicked on  button\n");
+            });
+        });
+
+document.addEventListener('keydown', (event) => {
+  const keyName = event.key;
+
+  if (keyName === 'Control') {
+    // do not alert when only Control key is pressed.
+    return;
+  }
+
+  if (event.ctrlKey) {
+    // Even though event.key is not 'Control' (i.e. 'a' is pressed),
+    // event.ctrlKey may be true if Ctrl key is pressed at the time.
+    alert(`Combination of ctrlKey + ${keyName}`);
+  } else {
+    alert(`Key pressed ${keyName}`);
+  }
+}, false);
+
+document.addEventListener('keyup', (event) => {
+  const keyName = event.key;
+
+  // As the user release the Ctrl key, the key is no longer active.
+  // So event.ctrlKey is false.
+  if (keyName === 'Control') {
+    alert('Control key was released');
+  }
+}, false);
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+        <form style="width:40%">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+
+
+    </div>
+</body>
+</html>
