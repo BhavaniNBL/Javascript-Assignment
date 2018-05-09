@@ -50,8 +50,8 @@ x.lastName = function() {
     console.log('Dugan');
 };
 
-window.addEventListener('resize', x.debounce(JD.lastName, 400));
-window.addEventListener('resize', x.debounce(JD.firstName, 400, true));
+window.addEventListener('resize', x.debounce(x.lastName, 400));
+window.addEventListener('resize', x.debounce(x.firstName, 400, true));
 	</script>
 
 </head>
