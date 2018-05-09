@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<style>
+    .container
+        {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+           </style>
+<script>
+	  
+      function valid()
+        {
+   let x= document.getElementsByTagName('input');
+        var name = /^[a-z A-Z]{2,16}$/
+        if(!name.test(x[0].value))
+            alert("please enter valid name");
+        
+        var mail = /^[a-z0-9]+@[a-z0-9.-]+\.[a-z]{2,3}$/
+        if(!mail.test(x[1].value))
+            alert("please enter valid email id");
+        
+        var phone = /^[0-9]\d{9}$/
+        if(!phone.test(x[2].value))
+            alert("please enter valid phone number");
+            return false;
+        
+        }
+    
+</script>
+</head>
+<div class="container">
+		<form action="#" onsubmit="return valid()">
+		<div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" id="name"  placeholder="Enter name">
+    
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
+    
+  </div>
+  <div class="form-group">
+           <label for="phone">Phone</label>
+           <input type="text" class="form-control" id="phone" placeholder="enter number">
+       </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+</body>
+</html>
