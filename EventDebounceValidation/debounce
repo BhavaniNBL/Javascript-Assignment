@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Debouncing</title>
+	<style>
+	@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+
+body {
+    color: #414142;
+    font-family: 'PT Sans', sans-serif;
+    line-height: 1.618;
+    background-color: #F5F5ED;
+    padding: 1em 2em;
+}
+h1 {
+    color: #1B1B1B;
+    font-size: 1.875rem;
+    font-weight: normal;
+    line-height: 1.353;
+}
+</style>
+	<script>
+		var JD = {};
+
+JD.debounce = function(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this,
+            args = arguments;
+        var later = function() {
+            timeout = null;
+            if ( !immediate ) {
+                func.apply(context, args);
+            }
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait || 200);
+        if ( callNow ) { 
+            func.apply(context, args);
+        }
+    };
+};
+
+JD.firstName = function() {
+    console.log('John');
+};
+
+JD.lastName = function() {
+    console.log('Dugan');
+};
+
+window.addEventListener('resize', JD.debounce(JD.lastName, 400));
+window.addEventListener('resize', JD.debounce(JD.firstName, 400, true));
+	</script>
+
+</head>
+<body>
+	<h1>Debounce in Action</h1>
+</body>
+</html>
