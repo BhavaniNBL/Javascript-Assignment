@@ -20,9 +20,9 @@ h1 {
 }
 </style>
 	<script>
-		var JD = {};
+		var x = {};
 
-JD.debounce = function(func, wait, immediate) {
+x.debounce = function(func, wait, immediate) {
     var timeout;
     return function() {
         var context = this,
@@ -42,16 +42,16 @@ JD.debounce = function(func, wait, immediate) {
     };
 };
 
-JD.firstName = function() {
+x.firstName = function() {
     console.log('John');
 };
 
-JD.lastName = function() {
+x.lastName = function() {
     console.log('Dugan');
 };
 
-window.addEventListener('resize', JD.debounce(JD.lastName, 400));
-window.addEventListener('resize', JD.debounce(JD.firstName, 400, true));
+window.addEventListener('resize', x.debounce(JD.lastName, 400));
+window.addEventListener('resize', x.debounce(JD.firstName, 400, true));
 	</script>
 
 </head>
